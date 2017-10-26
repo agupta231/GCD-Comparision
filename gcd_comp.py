@@ -1,3 +1,5 @@
+import math
+
 def euclid(m, n):
     while n != 0:
         r = m % n
@@ -17,3 +19,13 @@ def cica(m, n):
             t -= 1
 
     return 1
+
+def middle_school(m, n):
+    def prime_factors(num):
+        start_point = math.floor(math.sqrt(num))
+
+        while True:
+            if num % start_point == 0:
+                return prime_factors(start_point) + prime_factors(num / start_point)
+
+    pass
