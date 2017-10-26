@@ -20,6 +20,7 @@ def cica(m, n):
 
     return 1
 
+
 def middle_school(m, n):
     def prime_factors(num):
         start_point = math.floor(math.sqrt(num))
