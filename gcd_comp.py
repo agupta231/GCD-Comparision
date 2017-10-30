@@ -23,18 +23,16 @@ def cica(m, n):
 
 
 def middle_school(m, n):
-    def prime_factors(num):
-        start_point = math.floor(math.sqrt(num))
-
-        while True:
-            if num % start_point == 0:
-                return prime_factors(start_point) + prime_factors(num / start_point)
-
     pass
 
 
 def prime_factors(num):
-    pass
+    if is_prime(num):
+        return [num]
+
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return prime_factors(i) + prime_factors(int(num / i))
 
 
 def is_prime(val):
