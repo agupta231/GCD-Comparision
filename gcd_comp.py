@@ -23,24 +23,34 @@ def cica(m, n):
 
 
 def middle_school(m, n):
-    pass
+    def prime_factors(num):
+        if is_prime(num):
+            return [num]
 
+        for i in range(2, int(math.sqrt(num)) + 1):
+            if num % i == 0:
+                return prime_factors(i) + prime_factors(int(num / i))
 
-def prime_factors(num):
-    if is_prime(num):
-        return [num]
+    def is_prime(val):
+        if val == 2:
+            return True
 
-    for i in range(2, int(math.sqrt(num)) + 1):
-        if num % i == 0:
-            return prime_factors(i) + prime_factors(int(num / i))
+        for i in range(2, int(math.ceil(math.sqrt(val))) + 1):
+            if val % i == 0:
+                return False
 
-
-def is_prime(val):
-    if val == 2:
         return True
 
-    for i in range(2, int(math.ceil(math.sqrt(val))) + 1):
-        if val % i == 0:
-            return False
+    def prod_list(lst):
+        prod = 1
 
-    return True
+        for val in lst:
+            prod *= val
+
+        return prod
+
+    m_primes = prime_factors(m)
+    n_primes = prime_factors(n)
+
+    common_primes = set(n_primes) & set(m_primes)
+    return prod_list(common_primes)
