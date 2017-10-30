@@ -1,5 +1,6 @@
 import math
 
+
 def euclid(m, n):
     while n != 0:
         r = m % n
@@ -30,3 +31,18 @@ def middle_school(m, n):
                 return prime_factors(start_point) + prime_factors(num / start_point)
 
     pass
+
+
+def prime_factors(num):
+    pass
+
+
+def is_prime(val):
+    if val == 2:
+        return True
+
+    for i in range(2, int(math.ceil(math.sqrt(val))) + 1):
+        if val % i == 0:
+            return False
+
+    return True
