@@ -1,5 +1,7 @@
 import math
 
+import time
+
 
 def euclid(m, n):
     while n != 0:
@@ -57,4 +59,18 @@ def middle_school(m, n):
 
 
 def effGCD(s1, s2):
-    pass
+    start_time_euclid = time.clock()
+    gcd_euclid = euclid(s1, s2)
+    end_time_euclid = time.clock()
+
+    start_time_cica = time.clock()
+    gcd_cica = cica(s1, s2)
+    end_time_cica = time.clock()
+
+    start_time_ms = time.clock()
+    gcd_ms = middle_school(s1, s2)
+    end_time_ms = time.clock()
+
+    print("Euclid        -- GCD Computed: " + str(gcd_euclid) + " CPU time: " + str(end_time_euclid - start_time_euclid))
+    print("CICA          -- GCD Computed: " + str(gcd_cica) + " CPU time: " + str(end_time_cica - start_time_cica))
+    print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time: " + str(end_time_ms - start_time_ms))
