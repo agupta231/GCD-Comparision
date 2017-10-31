@@ -74,3 +74,32 @@ def effGCD(s1, s2):
     print("Euclid        -- GCD Computed: " + str(gcd_euclid) + " CPU time: " + str(end_time_euclid - start_time_euclid))
     print("CICA          -- GCD Computed: " + str(gcd_cica) + " CPU time: " + str(end_time_cica - start_time_cica))
     print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time: " + str(end_time_ms - start_time_ms))
+
+
+def UI():
+    for i in range(3):
+        print("\n")
+
+        n = input("Enter the first number (n) to determine the GCD of: ")
+        m = input("Enter the second number (m) to determine the GCD of: ")
+
+        try:
+            n = int(n)
+            m = int(m)
+
+            if n == 0 or m == 0:
+                print("0 is an invalid option, try again")
+                raise Exception
+
+            print("\n")
+
+            effGCD(n, m)
+            return
+
+        except:
+            print("Invalid input, please type in a number")
+
+    print("Maximum of 3 attempted fulfilled. Goodbye")
+    return
+
+UI()
