@@ -54,3 +54,7 @@ def middle_school(m, n):
 
     common_primes = set(n_primes) & set(m_primes)
     return prod_list(common_primes)
+
+
+def effGCD(s1, s2):
+    pass
