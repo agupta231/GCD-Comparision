@@ -103,9 +103,9 @@ def UI():
             n = int(n)
             m = int(m)
 
-            if n == 0 or m == 0:
+            if n <= 0 or m <= 0:
                 print("0 is an invalid option, try again")
-                continue
+                raise
 
             print("\n")
 
