@@ -92,6 +92,30 @@ def effGCD(s1, s2):
     print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time (seconds): " + str(end_time_ms - start_time_ms))
 
 
+def effGCDAverage(s1, s2, times):
+    gcd_euclid = 0
+    gcd_cica = 0
+    gcd_ms = 0
+
+    start_time_euclid = time.clock()
+    for i in times:
+        gcd_euclid = euclid(s1, s2)
+    end_time_euclid = time.clock()
+
+    start_time_cica = time.clock()
+    for i in times:
+        gcd_cica = cica(s1, s2)
+    end_time_cica = time.clock()
+
+    start_time_ms = time.clock()
+    for i in times:
+        gcd_ms = middle_school(s1, s2)
+    end_time_ms = time.clock()
+
+    print("Euclid        -- GCD Computed: " + str(gcd_euclid) + " CPU time (seconds): " + str((end_time_euclid - start_time_euclid) / 40))
+    print("CICA          -- GCD Computed: " + str(gcd_cica) + " CPU time (seconds): " + str((end_time_cica - start_time_cica) / 40))
+    print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time (seconds): " + str((end_time_ms - start_time_ms) / 40))
+
 def UI():
     for i in range(3):
         print("\n")
@@ -119,4 +143,4 @@ def UI():
     return
 
 
-UI()
+# UI()
