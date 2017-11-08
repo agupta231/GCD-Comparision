@@ -1,3 +1,7 @@
+# Ankur Gupta
+# agupta4@wpi.edu
+# CS2223 Project 1
+
 import math
 import time
 
