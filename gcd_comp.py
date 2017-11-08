@@ -43,32 +43,18 @@ def middle_school(m, n):
 
         return factors
 
-    def determine_gcd(m_primes, n_primes):
-        primes_tally = dict()
-
-        for m in m_primes:
-            if m in primes_tally:
-                primes_tally[m] = [primes_tally[m][0] + 1, primes_tally[m][1]]
-            else:
-                count = 0
-
-                for n in n_primes:
-                    if n == m:
-                        count += 1
-
-                primes_tally[m] = [1, count]
-
-        gcd = 1
-
-        for prime in primes_tally.keys():
-            gcd *= prime ** min(primes_tally[prime])
-
-        return gcd
-
     m_primes = prime_factors(m)
     n_primes = prime_factors(n)
 
-    return determine_gcd(m_primes, n_primes)
+    gcd = 1
+
+    for i in range(len(m_primes)):
+        for j in range(len(n_primes)):
+            if m_primes[i] == n_primes[j]:
+                n_primes[j] = 0
+                gcd *= m_primes[i]
+
+    return gcd
 
 
 def effGCD(s1, s2):
