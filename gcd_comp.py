@@ -47,8 +47,6 @@ def middle_school(m, n):
 
         for m in m_primes:
             if m in primes_tally:
-                print(m)
-
                 primes_tally[m] = [primes_tally[m][0] + 1, primes_tally[m][1]]
             else:
                 count = 0
@@ -118,54 +116,3 @@ def UI():
 
 
 UI()
-
-
-# def prime_factors(num):
-#     if is_prime(num):
-#         return [num]
-#
-#     for i in range(2, int(math.sqrt(num)) + 1):
-#         if num % i == 0:
-#             return prime_factors(i) + prime_factors(int(num / i))
-#
-#
-# def is_prime(val):
-#     if val == 2:
-#         return True
-#
-#     for i in range(2, int(math.ceil(math.sqrt(val))) + 1):
-#         if val % i == 0:
-#             return False
-#
-#     return True
-#
-#
-# m_primes = prime_factors(1000)
-# n_primes = prime_factors(10000)
-#
-#
-# def determine_gcd(m_primes, n_primes):
-#     primes_tally = dict()
-#
-#     for m in m_primes:
-#         if m in primes_tally:
-#             print(m)
-#
-#             primes_tally[m] = [primes_tally[m][0] + 1, primes_tally[m][1]]
-#         else:
-#             count = 0
-#
-#             for n in n_primes:
-#                 if n == m:
-#                     count += 1
-#
-#             primes_tally[m] = [1, count]
-#
-#     gcd = 1
-#
-#     for prime in primes_tally.keys():
-#         gcd *= prime ** min(primes_tally[prime])
-#
-#     return gcd
-#
-# print(determine_gcd(m_primes, n_primes))
