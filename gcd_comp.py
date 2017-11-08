@@ -29,22 +29,19 @@ def cica(m, n):
 
 def middle_school(m, n):
     def prime_factors(num):
-        if is_prime(num):
-            return [num]
+        factors = []
+        i = 2
+        n = num
 
-        for i in range(2, int(math.sqrt(num)) + 1):
-            if num % i == 0:
-                return prime_factors(i) + prime_factors(int(num / i))
+        while n > 1:
+            if n % i == 0:
+                factors.append(i)
+                n = n / i
+                i -= 1
 
-    def is_prime(val):
-        if val == 2:
-            return True
+            i += 1
 
-        for i in range(2, int(math.ceil(math.sqrt(val))) + 1):
-            if val % i == 0:
-                return False
-
-        return True
+        return factors
 
     def determine_gcd(m_primes, n_primes):
         primes_tally = dict()
@@ -98,23 +95,26 @@ def effGCDAverage(s1, s2, times):
     gcd_ms = 0
 
     start_time_euclid = time.clock()
-    for i in times:
+    for i in range(times):
         gcd_euclid = euclid(s1, s2)
     end_time_euclid = time.clock()
 
     start_time_cica = time.clock()
-    for i in times:
+    for i in range(times):
         gcd_cica = cica(s1, s2)
     end_time_cica = time.clock()
 
     start_time_ms = time.clock()
-    for i in times:
+    for i in range(times):
         gcd_ms = middle_school(s1, s2)
     end_time_ms = time.clock()
 
-    print("Euclid        -- GCD Computed: " + str(gcd_euclid) + " CPU time (seconds): " + str((end_time_euclid - start_time_euclid) / 40))
-    print("CICA          -- GCD Computed: " + str(gcd_cica) + " CPU time (seconds): " + str((end_time_cica - start_time_cica) / 40))
-    print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time (seconds): " + str((end_time_ms - start_time_ms) / 40))
+    print("N: " + str(s1) + " M: " + str(s2))
+    print("Euclid        -- GCD Computed: " + str(gcd_euclid) + " CPU time (seconds): " + str((end_time_euclid - start_time_euclid) / times))
+    print("CICA          -- GCD Computed: " + str(gcd_cica) + " CPU time (seconds): " + str((end_time_cica - start_time_cica) / times))
+    print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time (seconds): " + str((end_time_ms - start_time_ms) / times))
+    print("\n")
+
 
 def UI():
     for i in range(3):
@@ -144,3 +144,14 @@ def UI():
 
 
 # UI()
+
+effGCDAverage(31415, 14142, 40)
+effGCDAverage(8, 13, 40)
+effGCDAverage(8, 21, 40)
+effGCDAverage(13, 21, 40)
+effGCDAverage(50, 11, 40)
+effGCDAverage(50, 23, 40)
+effGCDAverage(50000, 12501, 40)
+effGCDAverage(50000, 25001, 40)
+effGCDAverage(475928, 234858, 40)
+effGCDAverage(2295976, 1895576, 40)
