@@ -2,10 +2,10 @@
 # agupta4@wpi.edu
 # CS2223 Project 1
 
-import math
 import time
 
 
+# Function to determine GCD using Euclid's Method
 def euclid(m, n):
     while n != 0:
         r = m % n
@@ -15,6 +15,7 @@ def euclid(m, n):
     return m
 
 
+# Function to determine GCD using Consecutive Integer Checking Algorithm
 def cica(m, n):
     t = min(m, n)
 
@@ -27,7 +28,10 @@ def cica(m, n):
     return 1
 
 
+# Function to determine the GCD using the middle school method
 def middle_school(m, n):
+
+    # Helper function to determine the prime factors of a certain number
     def prime_factors(num):
         factors = []
         i = 2
@@ -57,6 +61,8 @@ def middle_school(m, n):
     return gcd
 
 
+# Function to time all of the different GCD functions
+# Given n and m, will print the GCD computed and the time taken by the various functions
 def effGCD(s1, s2):
     start_time_euclid = time.clock()
     gcd_euclid = euclid(s1, s2)
@@ -75,6 +81,11 @@ def effGCD(s1, s2):
     print("Middle School -- GCD Computed: " + str(gcd_ms) + " CPU time (seconds): " + str(end_time_ms - start_time_ms))
 
 
+# Debugger program to run the different GCD functions a set number of times and then to take the average of the
+# runtime for each function.
+
+# It is recommended that you input at least 40 for the number of times, as this will give a fairly decent normal curve
+# a relatively good representation for the run time.
 def effGCDAverage(s1, s2, times):
     gcd_euclid = 0
     gcd_cica = 0
@@ -102,6 +113,8 @@ def effGCDAverage(s1, s2, times):
     print("\n")
 
 
+# UI function to interact with the different GCD functions. Input is an integer > 0 and will print out the output
+# from the effGCD() function.
 def UI():
     for i in range(3):
         print("\n")
