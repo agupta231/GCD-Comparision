@@ -130,12 +130,19 @@ def UI():
     for i in range(3):
         print("\n")
 
-        n = input("Enter the first number (n) to determine the GCD of: ")
-        m = input("Enter the second number (m) to determine the GCD of: ")
+        s1 = input("Enter the first number (n) to determine the GCD of: ")
+        s2 = input("Enter the second number (m) to determine the GCD of: ")
 
         try:
-            n = int(n)
-            m = int(m)
+            s1 = int(s1)
+            s2 = int(s2)
+
+            if s1 > s2:
+                m = s1
+                n = s2
+            else:
+                n = s1
+                m = s2
 
             if n <= 0 or m <= 0:
                 print("0 is an invalid option, try again")
