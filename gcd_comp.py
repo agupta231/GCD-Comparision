@@ -52,11 +52,19 @@ def middle_school(m, n):
 
     gcd = 1
 
-    for i in range(len(m_primes)):
-        for j in range(len(n_primes)):
-            if m_primes[i] == n_primes[j]:
-                n_primes[j] = 0
-                gcd *= m_primes[i]
+    if len (m_primes) < len(n_primes):
+        smaller = m_primes
+        bigger = n_primes
+    else:
+        smaller = m_primes
+        bigger = n_primes
+
+    for i in range(len(smaller)):
+        for j in range(len(bigger)):
+            if smaller[i] == bigger[j]:
+                gcd *= smaller[i]
+                bigger[j] = 0
+                break
 
     return gcd
 
@@ -106,6 +114,9 @@ def effGCDAverage(s1, s2, times):
         gcd_ms = middle_school(s1, s2)
     end_time_ms = time.clock()
 
+    # print(str((end_time_euclid - start_time_euclid)/times) + "," + str((end_time_cica - start_time_cica)/times) + "," + str((end_time_ms - start_time_ms)/times))
+
+
     print("N: " + str(s1) + " M: " + str(s2))
     print("Euclid        -- GCD Computed: " + str(gcd_euclid) + " CPU time (seconds): " + str((end_time_euclid - start_time_euclid) / times))
     print("CICA          -- GCD Computed: " + str(gcd_cica) + " CPU time (seconds): " + str((end_time_cica - start_time_cica) / times))
@@ -142,4 +153,15 @@ def UI():
     return
 
 
-UI()
+# UI()
+
+effGCDAverage(31415, 14142, 40)
+effGCDAverage(8, 13, 40)
+effGCDAverage(89, 144, 40)
+effGCDAverage(2048, 1024, 40)
+effGCDAverage(12341, 12340, 40)
+effGCDAverage(12341, 6170, 40)
+effGCDAverage(50001, 12501, 40)
+effGCDAverage(50001, 25001, 40)
+effGCDAverage(94421, 96451, 40)
+effGCDAverage(29, 190843, 40)
