@@ -153,15 +153,4 @@ def UI():
     return
 
 
-# UI()
-
-effGCDAverage(31415, 14142, 40)
-effGCDAverage(8, 13, 40)
-effGCDAverage(89, 144, 40)
-effGCDAverage(2048, 1024, 40)
-effGCDAverage(12341, 12340, 40)
-effGCDAverage(12341, 6170, 40)
-effGCDAverage(50001, 12501, 40)
-effGCDAverage(50001, 25001, 40)
-effGCDAverage(94421, 96451, 40)
-effGCDAverage(29, 190843, 40)
+UI()
